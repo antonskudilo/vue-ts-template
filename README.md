@@ -39,6 +39,30 @@ VITE_API_URL=/api
 VITE_APP_PORT=5173
 ```
 
+### Root `.env` file configuration
+
+A root `.env` file **is required** in the project root for proper application setup.  
+You can create it by copying the provided example:
+
+```bash
+cp .env.example .env
+```
+
+### Example `.env` file
+```env
+# Service name prefix used in Docker Compose
+COMPOSE_APP_NAME=vue_app       
+
+# Used as the page title    
+VITE_APP_NAME=VUE          
+
+# Used in the <head> meta description        
+VITE_APP_DESCRIPTION="Base Vue 3 application"   
+
+# Used for SEO in the <head> block
+VITE_APP_URL="https://example.com" 
+```
+
 ### Main commands
 
 - `make dev` — run dev build  
