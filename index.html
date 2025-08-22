@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
+    <!-- Title -->
+    <title><%= appName %></title>
+
+    <!-- Description -->
+    <meta name='description' content='<%= appDescription %>' />
+
+    <!-- Open Graph -->
+    <meta property='og:title' content='<%= appName %>' />
+    <meta property='og:description' content='<%= appDescription %>' />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='<%= appUrl %>' />
+    <meta property='og:image' content='<%= appUrl %>/preview.png' />
+
+    <!-- Twitter -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content='<%= appName %>' />
+    <meta name='twitter:description' content='<%= appDescription %>' />
+    <meta name='twitter:image' content='<%= appUrl %>/preview.png' />
+  </head>
+  <body>
+    <div id='app'></div>
+    <script type='module' src='/src/main.ts'></script>
+  </body>
+</html>

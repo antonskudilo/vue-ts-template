@@ -1,0 +1,49 @@
+.app-card {
+  padding: 1rem;
+  .border-light();
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  .rounded(10px);
+  .flex-column;
+  gap: 20px;
+
+  &__header {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  &__body {
+
+  }
+
+  &__footer {
+
+  }
+
+  &__form {
+    .flex-column;
+    gap: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      .text-muted;
+      .font-sm;
+    }
+
+    input {
+      padding: 8px;
+      width: 100%;
+      max-width: -webkit-fill-available;;
+      .border-light;
+      .rounded(4px);
+
+      &:focus {
+        outline-color: @color-primary-bg;
+      }
+    }
+  }
+
+  &__form-group {
+
+  }
+}

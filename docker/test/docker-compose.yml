@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  test:
+    build:
+      context: ../..
+      dockerfile: docker/Dockerfile
+      target: test
+      args:
+        NODE_ENV: ${NODE_ENV}
+        VITE_API_URL: ${VITE_API_URL}
+        VITE_APP_DESCRIPTION: ${VITE_APP_DESCRIPTION}
+        VITE_APP_NAME: ${VITE_APP_NAME}
+        VITE_APP_URL: ${VITE_APP_URL}
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - VITE_API_URL=${VITE_API_URL}
+      - VITE_APP_DESCRIPTION=${VITE_APP_DESCRIPTION}
+      - VITE_APP_NAME=${VITE_APP_NAME}
+      - VITE_APP_URL=${VITE_APP_URL}
+    depends_on:
+      - nginx
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    environment:
+      - API_URL=${API_URL}
+    ports:
+      - '${APP_PORT}:80'

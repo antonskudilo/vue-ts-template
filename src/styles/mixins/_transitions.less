@@ -1,0 +1,28 @@
+@transition-time: .2s;
+@hover-darken: 10%;
+
+.transition-color(@duration: @transition-time, @timing: ease-in-out) {
+  transition: color @duration @timing;
+}
+
+.transition-background-color(@duration: @transition-time, @timing: ease-in-out) {
+  transition: background-color @duration @timing;
+}
+
+.hover-text-darken(@color: @color-primary) {
+  color: @color;
+  .transition-color();
+
+  &:hover {
+    color: darken(@color, @hover-darken);
+  }
+}
+
+.hover-background-darken(@color: @color-primary) {
+  background-color: @color;
+  .transition-background-color();
+
+  &:hover {
+    background-color: darken(@color, @hover-darken);
+  }
+}

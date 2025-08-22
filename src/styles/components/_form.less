@@ -1,0 +1,22 @@
+.form {
+  gap: 15px;
+  .flex-column;
+
+  label {
+    color: @color-text-muted;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input {
+    max-width: -webkit-fill-available;
+    padding: 8px;
+    width: 100%;
+    .border-light;
+    .rounded(4px);
+
+    &:focus {
+      outline-color: @color-primary-bg;
+    }
+  }
+}

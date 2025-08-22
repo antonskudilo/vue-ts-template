@@ -1,0 +1,48 @@
+server {
+    listen 80;
+    server_name localhost;
+
+    gzip on;
+    gzip_comp_level 5;
+    gzip_min_length 256;
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_types
+        text/plain
+        text/css
+        text/javascript
+        application/javascript
+        application/json
+        application/xml
+        application/rss+xml
+        application/font-woff
+        application/font-woff2
+        font/woff
+        font/woff2
+        image/svg+xml;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /api/ {
+        proxy_pass $API_URL/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location ~* \.(?:ico|css|js|gif|jpe?g|png|woff2?|eot|ttf|otf|svg|webp)$ {
+        expires 1y;
+        access_log off;
+        add_header Cache-Control "public";
+    }
+
+    error_page 404 /index.html;
+}
